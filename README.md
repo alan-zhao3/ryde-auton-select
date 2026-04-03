@@ -2,7 +2,7 @@
 an vex v5 auton selector made by ryde secondary collage for LemLib: 0.5.6, kernel: 4.2.2, liblvgl: 9.2.0. 
 
 
-Instructions:
+Instructions(open read me in code mode or raw as lines dont load properly in preveiw or idk how to):
  1. create 2 new files being the same as the ones attached, auton_selector.cpp and auton_selector.h by righclicking on src and create new file for .cpp and rightclicking on include for .header (.h)
   
  2. copy and paste the contents of each file attached exculding main.cpp
