@@ -9,30 +9,33 @@ Instructions(open read me in code mode or raw as lines dont load properly in pre
 
  3. in main.cpp add #include "auton_selector.h" at the top
 
-4. in main.cpp again, replace initilize with this code and replace intake, middle, outtake with the motor names from your robot or code:
-void update_telemetry(lemlib::Chassis &chassis, pros::MotorGroup &left_mg, pros::MotorGroup &right_mg, pros::Motor &intake, pros::Motor &middle, pros::Motor &outtake) {
-    // populate telemetry display as needed
-}
+ 4. in main.cpp again, replace initilize with this code and replace intake, middle, outtake with the motor names from your robot or code:
 
-static void telemetry_timer_cb(lv_timer_t* timer) {
-    update_telemetry(chassis, left_mg, right_mg, intake, middle, outtake);
-}
+		void update_telemetry(lemlib::Chassis &chassis, pros::MotorGroup &left_mg, pros::MotorGroup &right_mg, pros::Motor &intake, pros::Motor 		   &middle, pros::Motor &outtake) {
+    	// populate telemetry display as needed
+		}
 
-// ---------------- PROS Hooks ----------------
-void initialize() {
-    chassis.calibrate();
-    while (imu.is_calibrating()) pros::delay(10);
-    create_selector_ui();
-    lv_timer_create(telemetry_timer_cb, 200, nullptr);
-}
+		static void telemetry_timer_cb(lv_timer_t* timer) {
+    	update_telemetry(chassis, left_mg, right_mg, intake, middle, outtake);
+		}
+
+		// ---------------- PROS Hooks ----------------
+		void initialize() {
+   		 chassis.calibrate();
+   		 while (imu.is_calibrating()) pros::delay(10);
+
+   			create_selector_ui();
+					lv_timer_create(telemetry_timer_cb, 200, nullptr);
+		}
 
  5. replace void auton with: and insert your own auton routes into the code(recomended to create a duplicate copy without auton selector for testing)
-void autonomous() {
-    if (selected_auton_id < 0) return;
-    
-    printf("[AUTO] Running %d: %s\n", selected_auton_id, AUTON_NAMES[selected_auton_id]);
 
-    switch (selected_auton_id) {
+		void autonomous() {
+    	if (selected_auton_id < 0) return;
+    
+   		 printf("[AUTO] Running %d: %s\n", selected_auton_id, AUTON_NAMES[selected_auton_id]);
+
+    	switch (selected_auton_id) {
         case 0: //1
             // Add your autonomous code here
             break;
@@ -48,7 +51,8 @@ void autonomous() {
             break;
         case 6: // 7
             break;
-    }
-}
-
- 6. save and upload to brain
+  		  }
+		}
+ 7. to change auton names look for:const char* AUTON_NAMES[7] = { in auton_selector.cpp and replace
+  
+ 9. save and upload to brain
