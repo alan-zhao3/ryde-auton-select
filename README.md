@@ -56,3 +56,6 @@ Instructions(open read me in code mode or raw as lines dont load properly in pre
  7. to change auton names look for:const char* AUTON_NAMES[7] = { in auton_selector.cpp and replace
   
  9. save and upload to brain
+
+ 10. Optional to change colours go to: static void init_styles() {
+in auton_selector.cpp
